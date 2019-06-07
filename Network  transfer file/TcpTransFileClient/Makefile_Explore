@@ -1,0 +1,8 @@
+expclient: exploreclient.o 
+	gcc -Wall exploreclient.o -o expclient -lpthread
+exploreclient.o: protocol2.h 
+clean:
+	-rm expclient *.o
+.PHONY: clean
+
+

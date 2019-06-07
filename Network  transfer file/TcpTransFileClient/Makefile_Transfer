@@ -1,0 +1,13 @@
+client: main.o Socket.o tcp_recv_thread.o tcp_send_thread.o udp_recv_thread.o udp_send_thread.o sha256.o
+	gcc -Wall main.o Socket.o tcp_recv_thread.o tcp_send_thread.o udp_recv_thread.o udp_send_thread.o sha256.o -o client -lpthread
+main.o: protocol.h Socket.h tcp_client.h
+tcp_recv_thread.o: protocol.h tcp_client.h
+tcp_send_thread.o: protocol.h tcp_client.h
+udp_recv_thread.o: protocol.h tcp_client.h
+udp_send_thread.o: protocol.h tcp_client.h
+sha256.o: sha256.h
+clean:
+	-rm client *.o
+.PHONY: clean
+
+

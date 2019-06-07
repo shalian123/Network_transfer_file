@@ -1,0 +1,10 @@
+server: main_thread.o PassiveServer.o sha256.o 
+	gcc -Wall main_thread.o PassiveServer.o sha256.o -o server -lpthread
+main_thread.o: protocol.h PassiveServer.h
+PassiveServer.o : PassiveServer.h
+sha256.o: sha256.h
+clean:
+	-rm server *.o
+.PHONY: clean
+
+

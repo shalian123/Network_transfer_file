@@ -1,0 +1,8 @@
+expserver: exploreserver.o 
+	gcc -Wall exploreserver.o -o expserver -lpthread
+exploreserver.o: protocol2.h 
+clean:
+	-rm expserver *.o
+.PHONY: clean
+
+
